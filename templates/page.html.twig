@@ -1,0 +1,264 @@
+{#
+/**
+ * @file
+ * Theme override to display a single page.
+ *
+ * The doctype, html, head and body tags are not in this template. Instead they
+ * can be found in the html.html.twig template in this directory.
+ *
+ * Available variables:
+ *
+ * General utility variables:
+ * - base_path: The base URL path of the Drupal installation. Will usually be
+ *   "/" unless you have installed Drupal in a sub-directory.
+ * - is_front: A flag indicating if the current page is the front page.
+ * - logged_in: A flag indicating if the user is registered and signed in.
+ * - is_admin: A flag indicating if the user has permission to access
+ *   administration pages.
+ *
+ * Site identity:
+ * - front_page: The URL of the front page. Use this instead of base_path when
+ *   linking to the front page. This includes the language domain or prefix.
+ *
+ * Page content (in order of occurrence in the default page.html.twig):
+ * - node: Fully loaded node, if there is an automatically-loaded node
+ *   associated with the page and the node ID is the second argument in the
+ *   page's path (e.g. node/12345 and node/12345/revisions, but not
+ *   comment/reply/12345).
+ *
+ * Regions:
+ * - page.header: Items for the header region.
+ * - page.primary_menu: Items for the primary menu region.
+ * - page.secondary_menu: Items for the secondary menu region.
+ * - page.highlighted: Items for the highlighted content region.
+ * - page.help: Dynamic help text, mostly for admin pages.
+ * - page.content: The main content of the current page.
+ * - page.sidebar_first: Items for the first sidebar.
+ * - page.sidebar_second: Items for the second sidebar.
+ * - page.footer: Items for the footer region.
+ * - page.breadcrumb: Items for the breadcrumb region.
+ * - page.header_top: Items for header ragion (Eg.logo, social icons and search block).
+ * - page.header_menu: Items header menu region.
+ * @see template_preprocess_page()
+ * @see html.html.twig
+ */
+#}
+<div id="page-wrapper">
+    <div class="visualize-page">
+        <header>
+            {% if page.header_top %}
+                <div class=" visualize-header-top ">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                {{ page.header_top }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            {% if page.header_left and page.header_center and page.header_right %}
+
+                <div class="visualize-header visualize-header__complete">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12 col-lg-4">
+                                {{ page.header_left }}
+                            </div>
+                            <div class="col-sm-12 col-lg-4">
+                                {{ page.header_center }}
+                            </div>
+                            <div class="col-sm-12 col-lg-4">
+                                {{ page.header_right }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% elseif page.header_left and page.header_center %}
+
+                <div class="visualize-header  visualize-header__left-center">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-4">
+                                {{ page.header_left }}
+                            </div>
+                            <div class="col-md-12 col-lg-4">
+                                {{ page.header_center }}
+                            </div>
+                            <div class="col-md-12 col-lg-4">
+                                {{ page.header_right }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% elseif page.header_center and page.header_right %}
+
+                <div class="visualize-header visualize-header__center-right">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-4">
+                                {{ page.header_left }}
+                            </div>
+                            <div class="col-md-12 col-lg-4">
+                                {{ page.header_center }}
+                            </div>
+                            <div class="col-md-12 col-lg-4">
+                                {{ page.header_right }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% elseif page.header_left and page.header_right %}
+                <div class="visualize-header visualize-header__left-right">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-lg-6">
+                                {{ page.header_center }}
+                            </div>
+                            <div class="col-md-12 col-lg-6">
+                                {{ page.header_right }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% elseif page.header_left %}
+                <div class="visualize-header visualize-header__left">
+                    <div class="container">
+                        <div class="row">
+                            <div class=" col-lg-12">
+                                {{ page.header_left }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% elseif page.header_center %}
+                <div class="visualize-header visualize-header__center">
+                    <div class="container">
+                        <div class="row">
+                            <div class=" col-lg-12">
+                                {{ page.header_center }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% elseif page.header_right %}
+                <div class="visualize-header visualize-header__right">
+                    <div class="container">
+                        <div class="row">
+                            <div class=" col-lg-12">
+                                {{ page.header_right }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+            {% if page.header_menu %}
+                <div class="visualize-header-menu">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="navbar-toggle">
+                                    <div class="bar1"></div>
+                                    <div class="bar2"></div>
+                                    <div class="bar3"></div>
+                                </div>
+                                    {{ page.header_menu }}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            {% endif %}
+        </header>
+        <main class="main-wrapper">
+            {% if page.top_banner %}
+                {{ page.top_banner }}
+            {% endif %}
+            {% if page.top_slideshow %}
+                {{ page.top_slideshow }}
+            {% endif %}
+            {% if page.page_title %}
+                <section class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            {{ page.page_title }}
+                        </div>
+                    </div>
+                </section>
+            {% endif %}
+
+            {% if page.left_sidebar and page.content %}
+                <section class="container sidebar left-sidebar">
+                    <div class="row">
+                        <div class="col-md-5 col-lg-4">
+                            {{ page.left_sidebar }}
+                        </div>
+                        <div class="col-md-7 col-lg-8">
+                            {{ page.content }}
+                        </div>
+                    </div>
+                </section>
+            {% elseif page.right_sidebar and page.content %}
+                <section class="container sidebar right-sidebar">
+
+                    <div class="row">
+                        <div class="col-md-7 col-lg-8">
+                            {{ page.content }}
+                        </div>
+                        <div class="col-md-5 col-lg-4">
+                            {{ page.right_sidebar }}
+                        </div>
+                    </div>
+                </section>
+            {% else %}
+                <section class="container">
+                    <div class="row">
+
+                        <div class="col-lg-12">
+                            {{ page.content }}
+                            {{ title }}
+                        </div>
+                    </div>
+                </section>
+            {% endif %}
+        </main>
+        <footer>
+            {% if page.footer_bottom %}
+                <div class="visualize-footer-top">
+                    <div class="container">
+                        <div class="visualize-footer-top__wrapper">
+                            {% if page.footer_one and page.footer_two and page.footer_three %}
+                                <div class="row">
+                                    <div class="col-lg-4">{{ page.footer_one }}</div>
+                                    <div class="col-lg-4">{{ page.footer_two }}</div>
+                                    <div class="col-lg-4">{{ page.footer_three }}</div>
+                                </div>
+                            {% elseif page.footer_one and page.footer_two %}
+                                <div class="row">
+                                    <div class="col-lg-6">{{ page.footer_one }}</div>
+                                    <div class="col-lg-6">{{ page.footer_two }}</div>
+
+                                </div>
+                            {% elseif page.footer_one%}
+                                <div class="row">
+                                    <div class="col-lg-12">{{ page.footer_one }}</div>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+            {% if page.footer_bottom %}
+                <div class="visualize-footer-bottom">
+                    <div class="container">
+                        {{ page.footer_bottom }}
+                    </div>
+                </div>
+            {% endif %}
+        </footer>
+    </div>
+</div>
+

@@ -1,0 +1,30 @@
+name: Visualize
+type: theme
+base theme: classy
+description: 'A demo theme.'
+package: custom
+core: 8.x
+libraries:
+  - core/jquery
+  - core/drupal
+  - core/drupalSettings
+  - visualize/global_styles
+  - visualize/slick
+  - visualize/fonts
+
+regions:
+  header_top: 'Header top'
+  header_left : 'Header left'
+  header_center: 'Header center'
+  header_right: 'Header right'
+  header_menu: 'Header Menu'
+  top_banner: 'Top banner'
+  top_slideshow: 'Top slideshow'
+  page_title: 'Page title'
+  content: 'Content'
+  left_sidebar: 'Left sidebar'
+  right_sidebar: 'Right sidebar'
+  footer_one: 'Footer One'
+  footer_two: 'Footer Two'
+  footer_three: 'Footer Three'
+  footer_bottom: 'Footer Bottom'

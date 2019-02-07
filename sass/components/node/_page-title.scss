@@ -1,0 +1,17 @@
+.block-page-title-block {
+
+}
+
+.page-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $pink;
+  min-height: 200px;
+  color: $white;
+
+  &:empty {
+    display: none;
+  }
+
+}

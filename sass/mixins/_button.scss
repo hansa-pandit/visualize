@@ -1,0 +1,29 @@
+@mixin vis-button($background: $pink) {
+  @include rem('padding', 10px 20px);
+  @include rem('border-radius', 25px);
+  text-transform: uppercase;
+  color: $white;
+  background: $background;
+  text-align: center;
+  font-weight: $semibold;
+  transition: $transition;
+  letter-spacing: 2px;
+  @include media-breakpoint-up("md") {
+    @include rem('min-width', 140px);
+  }
+  @if $background== $coral {
+    &:hover {
+      background: $yellow;
+    }
+  }
+  @if $background== $pink {
+    &:hover {
+      background: $yellow;
+    }
+  }
+  @if $background== $yellow {
+    &:hover {
+      background: $pink;
+    }
+  }
+}

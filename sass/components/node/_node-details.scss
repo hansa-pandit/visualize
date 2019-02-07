@@ -1,0 +1,130 @@
+.node__submitted {
+  display: inline-block;
+}
+
+.node__meta {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  @include media-breakpoint-up('sm') {
+    text-align: right;
+    flex-wrap: nowrap;
+  }
+  &-author,
+  &-date {
+    display: inline-block;
+    padding: 10px;
+    text-transform: uppercase;
+  }
+
+  &-date {
+    background: $black;
+    color: white;
+    border-left: 5px solid $pink;
+  }
+
+  &-author {
+    @include rem('max-width', 200px);
+
+    text-align: center;
+    color: $pink;
+    font-weight: $semibold;
+
+    a {
+      line-height: 1.2;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.node__content {
+  .field--type-image {
+    @include rem('max-width', 220px);
+    @include rem('margin', 20px auto 0 auto);
+    line-height: 1;
+
+    @include media-breakpoint-up('sm') {
+      @include rem('margin', 0 20px 20px 0);
+
+      float: left;
+    }
+    @include media-breakpoint-up('lg') {
+      @include rem('max-width', 400px);
+    }
+    img {
+      display: block;
+    }
+  }
+
+  .field--name-user-picture {
+    @include rem('margin', 0 auto 5px);
+  }
+
+  p {
+    text-align: justify;
+    img {
+      @include rem('max-width', 220px);
+      display: block;
+      line-height: 1;
+      margin: 20px auto;
+      float: none;
+
+      @include media-breakpoint-up('sm') {
+        @include rem('margin', 20px 20px 20px 0);
+
+        float: left;
+      }
+      @include media-breakpoint-up('lg') {
+        @include rem('max-width', 400px);
+      }
+    }
+  }
+
+  figure {
+    @include rem('max-width', 220px);
+    display: block;
+    line-height: 1;
+    margin: 20px auto;
+    float: none;
+
+    @include media-breakpoint-up('sm') {
+      @include rem('margin', 20px 20px 20px 0);
+
+      float: left;
+    }
+    @include media-breakpoint-up('lg') {
+      @include rem('max-width', 400px);
+    }
+  }
+  .align-right {
+    @include media-breakpoint-up('sm') {
+      @include rem('margin', 20px 0 20px 20px);
+
+      float: right;
+    }
+  }
+
+  .align-center {
+    @include media-breakpoint-up('sm') {
+      float: none;
+      display: block;
+      margin: 20px auto;
+    }
+  }
+}
+
+ul.links {
+  li {
+    background: none;
+  }
+}
+
+ul.links,
+ul.links.inline{
+  display: inline-block;
+}

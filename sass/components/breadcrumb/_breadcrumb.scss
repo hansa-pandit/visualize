@@ -1,0 +1,9 @@
+.breadcrumb {
+  li {
+    @include rem('margin-right', 20px);
+    &:before {
+      @include rem('left', -16px);
+      color: $black;
+    }
+  }
+}

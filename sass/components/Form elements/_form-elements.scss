@@ -1,0 +1,141 @@
+label {
+  @include rem('margin-bottom', 5px);
+  display: block;
+  font-weight: $semibold;
+  text-transform: uppercase;
+}
+label.option {
+  font-weight: $semibold;
+}
+input,
+select{
+  color: $black;
+}
+input,
+textarea,
+select{
+  @include rem('padding', 10px 20px);
+  @include rem('border-radius', 25px);
+  width: auto;
+  max-width: 100%;
+  border: none;
+  color: $black;
+  background: $light-grey;
+  box-shadow: none;
+  outline: none;
+}
+textarea {
+  @include rem('height', 180px);
+}
+input[type = "submit"],
+input[type = "button"]{
+  @include vis-button($pink);
+  height: auto;
+  width: auto;
+
+}
+
+select {
+  @include rem('padding', 10px 20px 10px 20px);
+  @include rem('min-width', 140px);
+  width: auto;
+  appearance: none;
+  background: url("../compress-images/down-arrow.png")no-repeat center right 10px ;
+  background-size: 15px;
+  background-color: $light-grey;
+}
+
+input[type = "radio"]
+{
+  @include rem('margin', 5px 5px 5px 0);
+  @include rem('width', 20px);
+  @include rem('height', 20px);
+  appearance: none;
+  display: inline-block;
+  position: relative;
+  background-color: $light-grey;
+  border: 0;
+  border-radius: 50%;
+  vertical-align: middle;
+  cursor: pointer;
+   transition: $transition;
+}
+input[type = "radio"]:checked::before
+{
+  @include rem('width', 8px);
+  @include rem('height', 8px);
+  @include rem('top', 6px);
+  @include rem('left', 6px);
+  content: ' ';
+  position: absolute;
+  border-radius: 50%;
+  background: $light-grey;
+}
+
+input[type = "radio"]:hover
+{
+  background-color: $grey;
+  transition: $transition;
+}
+input[type = "radio"]:checked {
+  background-color: $grey-text;
+
+}
+
+input[type = "checkbox"] {
+  @include rem('margin', 5px 5px 5px 0);
+  @include rem('width', 18px);
+  @include rem('height', 18px);
+  appearance: none;
+  display: inline-block;
+  position: relative;
+  background-color: $light-grey;
+  border: 0;
+  border-radius: 4px;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: $transition;
+}
+
+input[type = "checkbox"]:checked::before
+{
+  content: '\f00c';
+  position: absolute;
+  color: $light-grey;
+  font-size: 10px;
+  font-family: "Font Awesome\ 5 Free";
+  font-weight: $bold;
+  top: 4px;
+  left: 4px;
+}
+
+input[type = "checkbox"]:checked {
+  background-color: $grey-text;
+}
+input[type="search"] {
+  @include rem('height', 46px);
+  box-sizing: border-box;
+}
+.fieldset-legend {
+  @include rem('margin-bottom', 5px);
+  display: block;
+  font-weight: $semibold;
+  text-transform: uppercase;
+}
+form {
+  @include rem('padding', 20px);
+
+  background: $white;
+  box-shadow: 0 0 12px rgba(0,0,0,.1);
+}
+::placeholder {
+  text-transform: uppercase;
+  font-weight: $normal;
+  color: $grey-text;
+}
+
+.form-textarea-wrapper {
+  textarea {
+    width: auto;
+  }
+}

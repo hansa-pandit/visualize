@@ -1,0 +1,77 @@
+/**
+ * This file contains all the mixins used in the
+ * freerange theme and its style guide components.
+ * ---- INDEX ---
+ * # Basic Initial Mixins # base mixins.
+ * # Style Mixins # for defining standard styling.
+ * # Component Mixins # for theming components.
+ */
+
+/**
+ * 1. Basic and intial mixins ==================================
+ */
+
+/**
+ * 1.a. Mixin to parse any type to integer type.
+ */
+
+@function parseint($n) {
+  @return $n / ($n * 0 + 1);
+}
+
+/**
+ * 1.b. Mixin to convert px to rem unit.
+ * Rem function assuming the base font size to be 10px.
+ * Function takes property name as the first argument and property value as the second argument
+ */
+
+@mixin rem($property, $values) {
+  $px: (); /* Empty list for pxs */
+  $rem: (); /* Empty list for rems */
+
+  @each $value in $values {
+    /* Iterate through each values passed */
+
+    @if $value == 0 or $value == auto {
+      /* If value is 0 or auto, simply adds them to the list. */
+      $px: append($px, $value);
+      $rem: append($rem, $value);
+    }
+
+    @else {
+      $unit: unit($value); /* Extract the unit value */
+      $val: parseint(
+        $value
+      ); /* Get the typecasted integer value using parseint() */
+
+      @if $unit == "px" {
+        /* If unit passed is in px */
+        $px: append($px, $value); /* Dont change for px value */
+        $rem: append(
+          $rem,
+          ($val / 10 + rem)
+        ); /* For rem value - divide the integer pixel vaule by 10 and add 'rem' in the last. */
+      }
+
+      @if $unit == "rem" {
+        /* If unit passed is in rem */
+        $px: append(
+          $px,
+          ($val * 10 + px)
+        ); /* For px value - multiply the integer pixel vaule by 10 and add 'px' in the last. */
+        $rem: append($rem, $value); /* Dont change for rem value */
+      }
+    }
+  }
+
+  @if $px == $rem {
+    /* If both properties are same print only one of them  */
+    #{$property}: $px;
+  }
+
+  @else {
+    /* Other wise print both the values with property */
+    #{$property}: $px;
+    #{$property}: $rem;
+  }
+}

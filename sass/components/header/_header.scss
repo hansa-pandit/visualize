@@ -1,0 +1,31 @@
+.visualize-header {
+  @include rem('padding', 20px 0);
+
+  .row {
+    align-items: center;
+  }
+  .region {
+    text-align: center;
+  }
+  .region-header-left {
+    @include rem('margin-bottom', 10px);
+    @include media-breakpoint-up(lg) {
+      text-align: left;
+      margin: 0;
+    }
+  }
+  .region-header-center {
+    @include rem('margin-bottom', 10px);
+    @include media-breakpoint-up(lg) {
+      margin: 0;
+    }
+  }
+  .region-header-right {
+    @include rem('margin-bottom', 10px);
+
+    @include media-breakpoint-up(lg) {
+      text-align: right;
+      margin: 0;
+    }
+  }
+}

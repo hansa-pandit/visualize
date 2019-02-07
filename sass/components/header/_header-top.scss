@@ -1,0 +1,26 @@
+.visualize-header-top {
+  @include rem('padding', 14px 0);
+  background: $black;
+  border-bottom: 2px solid $pink;
+  p,
+  a,
+  span {
+    color: $white;
+    margin: 0;
+  }
+  .region-header-top-right {
+    text-align: left;
+    @include media-breakpoint-up('lg') {
+      text-align: right;
+    }
+  }
+  .region-header-top-left {
+    text-align: left;
+    @include media-breakpoint-up('lg') {
+      text-align: left;
+    }
+  }
+  .row {
+    align-items: center;
+  }
+}

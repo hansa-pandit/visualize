@@ -1,0 +1,32 @@
+visualize.mobile:
+  label: mobile
+  mediaQuery: 'all and (min-width: 320px) and (max-width: 575px)'
+  weight: 0
+  multipliers:
+    - 1x
+visualize.tablet:
+  label: narrow
+  mediaQuery: 'all and (min-width: 576px) and (max-width: 767px)'
+  weight: 1
+  multipliers:
+    - 1x
+
+visualize.landscape:
+  label: narrow
+  mediaQuery: 'all and (min-width: 768px) and (max-width: 991px)'
+  weight: 1
+  multipliers:
+    - 1x
+    - 1x
+visualize.desktop:
+  label: wide
+  mediaQuery: 'all and (min-width: 992px) and (max-width: 1199px)'
+  weight: 2
+  multipliers:
+    - 1x
+visualize.wide:
+  label: wide
+  mediaQuery: 'all and (min-width: 1200px)'
+  weight: 2
+  multipliers:
+    - 1x

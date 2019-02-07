@@ -1,0 +1,16 @@
+.region-left-sidebar,
+.region-right-sidebar{
+  @include rem('padding', 20px);
+  background: $light-grey;
+  height: 100%;
+
+  h2 {
+    color: $black;
+  }
+}
+
+.left-sidebar {
+  .row {
+    flex-wrap: wrap-reverse;
+  }
+}

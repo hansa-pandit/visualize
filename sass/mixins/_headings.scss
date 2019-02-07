@@ -1,0 +1,77 @@
+@mixin vis-heading {
+  @include rem("padding", 10px 0);
+
+  font-family: $raleway;
+  font-weight: $semibold;
+  text-transform: capitalize;
+  margin: 0;
+  line-height: 1.4;
+  color: $pink ;
+;
+}
+
+@mixin vis-heading-h1($color: $pink) {
+  @include vis-heading;
+
+  @include rem("font-size", 30px);
+
+  @include media-breakpoint-up("md") {
+    @include rem("font-size", 40px);
+  }
+  color: $color;
+}
+@mixin vis-heading-h2($color: $pink) {
+  @include vis-heading;
+
+  @include rem("font-size", 24px);
+
+  @include media-breakpoint-up("md") {
+    @include rem("font-size", 30px);
+  }
+  color: $color;
+}
+@mixin vis-heading-h3($color: $pink) {
+  @include vis-heading;
+
+  @include rem("font-size", 22px);
+
+  @include media-breakpoint-up("md") {
+    @include rem("font-size", 24px);
+  }
+
+  color: $color;
+}
+
+@mixin vis-heading-h4($color: $pink) {
+  @include vis-heading;
+
+  @include rem("font-size", 20px);
+  @include media-breakpoint-up("md") {
+    @include rem("font-size", 22px);
+  }
+
+  color: $color;
+}
+
+
+@mixin vis-heading-h5($color: $pink) {
+  @include vis-heading;
+
+  @include rem("font-size", 18px);
+  @include media-breakpoint-up("md") {
+    @include rem("font-size", 20px);
+  }
+
+  color: $color;
+}
+
+@mixin vis-heading-h6($color: $pink) {
+  @include vis-heading;
+
+  @include rem("font-size", 16px);
+  @include media-breakpoint-up("md") {
+    @include rem("font-size", 18px);
+  }
+
+  color: $color;
+}

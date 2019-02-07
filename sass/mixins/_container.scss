@@ -1,0 +1,19 @@
+@mixin create-container() {
+  @include make-container();
+
+  @include media-breakpoint-up("sm") {
+    @include rem("max-width", 540px);
+  }
+
+  @include media-breakpoint-up("md") {
+    @include rem("max-width", 720px);
+  }
+
+  @include media-breakpoint-up("lg") {
+    @include rem("max-width", 960px);
+  }
+
+  @include media-breakpoint-up("xl") {
+    @include rem("max-width", 1170px);
+  }
+}

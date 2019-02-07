@@ -1,0 +1,32 @@
+global_styles:
+  css:
+    theme:
+      css/styles.css: {}
+  js:
+    js/custom.js: { scope: footer }
+  dependencies:
+    - core/drupal
+    - core/jquery
+
+preloader:
+  header: true
+  js:
+    js/preloader.js:
+  dependencies:
+    - core/drupal
+    - core/jquery
+
+fonts:
+  css:
+    theme:
+      '//fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900': {type: external}
+      'https://use.fontawesome.com/releases/v5.0.9/css/all.css': {type: external}
+
+slick:
+  version: 1.9.0
+  css:
+    theme:
+      'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css': { type: external, minified: true }
+      'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css': { type: external, minified: true }
+  js:
+    'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js': { type: external, minified: true }

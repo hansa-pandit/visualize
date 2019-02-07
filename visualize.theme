@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the Bartik theme.
+ */
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Template\Attribute;
+use Drupal\Core\Entity;
+use Drupal\block\Entity\Block;
+use Drupal\Component\Render\FormattableMarkup;
+
+
+use Drupal\Core\Theme\ThemeSettings;
+use Drupal\system\Form\ThemeSettingsForm;
+use Drupal\Core\Form;
+
+
+function visualize_form_search_block_form_alter(&$form, &$form_state, $form_id) {
+    $form['actions']['submit']['#value'] = html_entity_decode('&#xf002;');
+    $form['actions']['submit']['#attributes']['class'][] = 'search-button';
+    $form['keys']['#attributes']['placeholder'] = t('search');
+}
+
+/*
+
+function visualize_form_system_theme_settings_alter(&$form, Drupal\Core\Form\FormStateInterface $form_state) {
+    $form['visualize_settings']['social_icon']['social_url'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Social Link'),
+        '#default_value' => theme_get_setting('social_url', 'visualize'),
+    );
+}*/
+
+function visualize_preprocess_page(&$variables) {
+    $variables['social_url'] = theme_get_setting('social_url','visualize');
+
+
+    $fonts = theme_get_setting('visualize_google_fonts');
+    if ($fonts) {
+        $variables['#attached']['library'][] = 'visualize/' . $fonts;
+    }
+
+}

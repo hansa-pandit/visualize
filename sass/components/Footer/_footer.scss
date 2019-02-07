@@ -1,0 +1,20 @@
+footer {
+
+}
+.visualize-footer-top {
+  @include rem('padding', 50px 0)
+  background-color: $black;
+  border-top: 2px solid $pink;
+  border-bottom: 2px solid $pink;
+   a {
+     color: $grey-text;
+
+     &:hover {
+       color: $white;
+     }
+   }
+}
+
+.visualize-footer-bottom {
+  text-align: center;
+}

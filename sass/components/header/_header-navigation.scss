@@ -1,0 +1,252 @@
+.visualize-header-menu {
+  border-top: 1px solid $pink;
+  .navigation {
+    @include media-breakpoint-up(lg) {
+      padding: 0;
+    }
+
+    .menu {
+      @include rem('padding', 10px);
+      @include rem('margin-top', 30px);
+
+    }
+
+    .menu-level0 {
+      @include rem('padding', 0);
+      > .menu-item {
+        @include media-breakpoint-down(md) {
+          border-bottom: 1px solid $dark-grey;
+        }
+
+        > a {
+          @include rem('padding', 20px 15px);
+        }
+      }
+      .menu-item {
+        @include media-breakpoint-down(md) {
+          padding: 10px 20px;
+        }
+
+      }
+    }
+
+    .menu-item {
+      position: relative;
+      white-space: nowrap;
+
+      a {
+
+        @include media-breakpoint-down(md) {
+
+          color: $white;
+          font-weight: normal;
+          text-transform: uppercase;
+        }
+      }
+
+      .is-active {
+        color: $white;
+      }
+
+      &--expanded {
+        list-style: none;
+        position: relative;
+
+        ul.menu {
+          @include media-breakpoint-down(md) {
+
+            display: none;
+            margin-left: 0;
+            margin-top: 0;
+          }
+        }
+
+        .menu-item {
+          a {
+            @include media-breakpoint-down(md) {
+
+              color: $white;
+              font-weight: $normal;
+              text-transform: none;
+              position: relative;
+              &:before {
+                content: '-';
+                position: absolute;
+                left: -10px;
+              }
+            }
+          }
+
+          .is-active {
+            @include media-breakpoint-down(md) {
+              color: $white;
+
+            }
+          }
+        }
+      }
+    }
+
+    @include media-breakpoint-up(lg) {
+      @include create-container();
+
+      ul.menu {
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+      }
+      .menu-level2 {
+        left: calc(100% + 10px);
+        top: 0
+      }
+
+      .menu-level1 {
+        .menu-item--expanded {
+          > a {
+            &:after {
+              content: "\f105";
+            }
+          }
+        }
+      }
+
+      .menu-item {
+        position: relative;
+        transition: $transition;
+        padding: 0;
+
+        a {
+          @include rem('padding', 10px 15px);
+          @include rem('font-size', 14px);
+
+          color: $black;
+          text-transform: uppercase;
+          font-weight: $bold;
+          letter-spacing: 0.2em;
+          transition: $transition;
+
+          &:hover {
+            color: #fab915;
+            transition: $transition;
+          }
+        }
+
+        .is-active {
+          color: $pink;
+        }
+
+        &--expanded {
+          list-style: none;
+          position: relative;
+          height: 100%;
+          z-index: 1;
+
+          ul.menu {
+            position: absolute;
+            display: none;
+            background-color: $white;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+          }
+
+          > a {
+            &:after {
+              content: "\f107";
+              position: absolute;
+              right: 0;
+              font-family: "Font Awesome\ 5 Free";
+            }
+          }
+        }
+      }
+      .menu-accordion-icon {
+        display: none;
+      }
+    }
+
+  }
+  .menu-accordion-icon {
+    @include rem('font-size', 20px);
+
+    color: $white;
+    position: absolute;
+    right: 20px;
+    font-weight: $semibold;
+    line-height: 1;
+    transition: $transition;
+  }
+
+  .navbar-toggle {
+    @include rem('width', 50px);
+    @include rem('height', 50px);
+    @include rem('padding', 10px);
+
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    z-index: 3;
+    cursor: pointer;
+    background: rgba(30,30,30,.5);
+    @include media-breakpoint-up(lg) {
+      display: none;
+    }
+  }
+
+  .bar1,
+  .bar2,
+  .bar3 {
+    width: 30px;
+    height: 2px;
+    margin: 6px auto;
+    background-color: $white;
+    transition: $transition;
+  }
+
+  .navbar-on {
+    background: rgba(30,30,30,.5);
+    .bar1,
+    .bar2,
+    .bar3 {
+      background-color: $white;
+    }
+  }
+
+
+  .navbar-on .bar1 {
+    transform-origin: 10% 40%;
+    transform: rotate(45deg);
+  }
+
+  .navbar-on .bar3 {
+    transform-origin: 10% 40%;
+    transform: rotate(-45deg);
+  }
+
+  .navbar-on .bar2 {
+    background-color: transparent;
+  }
+
+  .navigation {
+    @include media-breakpoint-down(md) {
+      display: none;
+      position: fixed;
+      z-index: 2;
+      background: $black;
+      width: 100%;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      overflow-y: scroll;
+    }
+  }
+  .accordion-open {
+    transform: rotate(180deg);
+    transition: $transition;
+  }
+
+  ul {
+    li {
+      background: none;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.comment-wrapper {
+  @include rem('padding', 20px);
+  background: $light-grey;
+
+  &:empty {
+    display: none;
+  }
+  .title {
+    color: $black;
+    padding: 0;
+  }
+  .comment-form {
+    &__title {
+      @include vis-heading-h3($black);
+      @include rem('padding', 20px 0);
+    }
+  }
+}
+
+.comment {
+  @include rem('padding', 20px);
+  background: $lightest-grey;
+  border-bottom: 2px solid $yellow;
+  .field--name-user-picture {
+    @include rem('width', 50px);
+    @include rem('height', 50px);
+    a {
+
+    }
+  }
+  .comment__meta {
+    display: flex;
+    align-items: center;
+
+  }
+  .comment__submitted {
+    @include rem('margin-left', 10px);
+    text-align: left;
+  }
+}

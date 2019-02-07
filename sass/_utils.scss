@@ -1,0 +1,97 @@
+.slick-dotted {
+  .slick-dots {
+    li {
+      margin: 0 2px;
+      button {
+        &:before {
+          font-size: 10px;
+          color: $black;
+          opacity: 1;
+        }
+      }
+    }
+    .slick-active {
+      button {
+        &:before {
+          color: $pink;
+        }
+      }
+    }
+  }
+}
+
+.rate-image {
+  display: inline-block;
+  float: none;
+}
+
+
+.search-button {
+  font-family: 'Font Awesome\ 5 Free';
+  display: inline;
+  font-weight: $extrabold;
+  font-size: 18px;
+}
+
+.fixed {
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
+  z-index: 1;
+  box-shadow: 0 1px 15px 0 rgba(0, 0, 0, 0.07);
+  animation: smoothScroll 1s forwards;
+
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: red;
+  z-index: 9999;
+  display: block;
+}
+#page-wrapper {
+  @include rem("max-width", 1680px);
+  margin: 0 auto;
+}
+
+.caption {
+  @include rem("margin", 10px 0);
+
+  position: relative;
+  > figcaption {
+    display: block;
+    background: $black;
+    color: $white;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 20px;
+    font-style: italic;
+  }
+}
+
+ul.menu {
+  margin: 0;
+}
+
+ul.inline {
+  li {
+    @include rem("padding", 0 10px 0 0);
+  }
+}
+
+.item-list  {
+  li {
+    @include rem("padding", 0 20px);
+    margin: 0;
+  }
+}
+main {
+  @include rem("margin-bottom", 50px);
+  .block {
+    @include rem("margin-bottom", 50px);
+  }
+}

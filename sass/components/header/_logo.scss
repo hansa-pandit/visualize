@@ -1,0 +1,10 @@
+.block-system-branding-block {
+  text-align: center;
+  img {
+    @include rem('max-width', 250px);
+    width: 100%;
+    @include media-breakpoint-up("lg") {
+      @include rem('max-width', 350px);
+    }
+  }
+}
